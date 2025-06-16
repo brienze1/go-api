@@ -1,0 +1,1 @@
+docker-compose -p go-api -f docker-compose.yml down --volumes
