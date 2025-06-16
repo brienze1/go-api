@@ -23,7 +23,6 @@
 </p>
 
 <p align = "center">
-<b> Go Learning Session </b>
 </p>
 
 ## 💻 Product
