@@ -160,3 +160,11 @@ to their functions.
       ```
 
 - To stop the application just hit `Ctrl + C`:
+
+## ❤️ Acknowledgements
+
+I migrated this project from a previous repository to this one to better organize my studies and share the knowledge I have acquired in Go. 
+Since the commit history and original authorship of the code may not be fully preserved in this repository, I want to acknowledge the original authors and contributors of the project bellow:
+- [Leo Neto](https://github.com/cleopatrio)
+- [Gabriel Herter](https://github.com/GabiHert)
+- [Luis Brienze](https://github.com/brienze1)
