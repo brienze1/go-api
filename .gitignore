@@ -30,3 +30,7 @@ queues-benchmark-cpu.out
 queues-benchmark-mem.out
 queues-benchmark-profile.out
 coverage.out
+benchmark.txt
+mutation_results.log
+nancy-report.log
+coverage.html
