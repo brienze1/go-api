@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0ABAB5&height=260&section=header&text=Brienze&fontSize=90&animation=fadeIn&fontAlignY=38&desc=GO%20Test%20Examples&descAlignY=56&descAlign=50">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0ABAB5&height=260&section=header&text=GO%20Test%20Examples&fontSize=90&animation=fadeIn&fontAlignY=38&desc=Luis%20Brienze&descAlignY=56&descAlign=50">
   <h1 align="center">Go API</h1>
 </p>
 
