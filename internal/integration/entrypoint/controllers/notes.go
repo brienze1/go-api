@@ -50,6 +50,12 @@ func (n *notesController) CreateNote(ctx context.Context, userId string, body []
 		return n.errorHandler.HandleError(ctx, err)
 	}
 
+	// Fake business rule to show BDD validation
+	if note.Title == "brandlovers" {
+		err = exceptions.NewValidationError("you cannot create a note with the title 'brandlovers'")
+		return n.errorHandler.HandleError(ctx, err)
+	}
+
 	createdNote, err := n.createNoteUseCase.Create(ctx, note.ToEntity())
 	if err != nil {
 		return n.errorHandler.HandleError(ctx, err)

@@ -9,7 +9,6 @@ Feature: Create note
   Background:
     Given the header is empty
 
-  @test
   Scenario Outline: Create note error when <scenario> - response fields validation
     Given the "user" exists
     """
@@ -77,7 +76,8 @@ Feature: Create note
     And the db should contain 1 objects in the "notes" table
     And the db should contain the "note" with the "title" column value "My first note" colum "content" equal to "This is my first note"
 
-  Scenario: Create note success - sqs fields validation
+  @test
+  Scenario Outline: Create note success - sqs fields validation
     Given the db should contain 0 objects in the "notes" table
     And the "user" exists
     """
@@ -89,11 +89,15 @@ Feature: Create note
     When I call "POST" "/v1/users/90d78048-f39d-47ab-9d24-3da4d8d1fb23/notes" with body
     """
     {
-       "title": "My first note",
+       "title": "<title>",
        "content": "This is my first note"
     }
     """
     Then the status returned should be 201
     And the sqs queue "https://localhost.localstack.cloud:4566/000000000000/newNoteQueue" should have 1 messages published
-    And the sqs queue "https://localhost.localstack.cloud:4566/000000000000/newNoteQueue" should have a message published with "title" field equal to "My first note"
+    And the sqs queue "https://localhost.localstack.cloud:4566/000000000000/newNoteQueue" should have a message published with "title" field equal to "<title>"
     And the sqs queue "https://localhost.localstack.cloud:4566/000000000000/newNoteQueue" should have a message published with "content" field equal to "This is my first note"
+
+    Examples:
+      | title         |
+      | My first note |
