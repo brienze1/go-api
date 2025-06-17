@@ -101,3 +101,4 @@ Feature: Create note
     Examples:
       | title         |
       | My first note |
+

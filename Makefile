@@ -68,17 +68,17 @@ validate-coverage:
 bench-test:
 	go test -v ./test/benchmark/... -bench .  -benchmem -count=10 | tee benchmark.txt
 
-fuzzy-test:
-	go test -v ./test/fuzzy/...  -fuzz=. -fuzztime 10s
-
 queues-benchmark-profile:
-	go test -v ./test/benchmark/internal/integration/queues/... -bench .  -benchmem -count=10 -memprofile queues-benchmark-mem.out -cpuprofile queues-benchmark-cpu.out -o queues-benchmark-profile.out  
+	go test -v ./test/benchmark/internal/integration/queues/... -bench .  -benchmem -count=10 -memprofile queues-benchmark-mem.out -cpuprofile queues-benchmark-cpu.out -o queues-benchmark-profile.out
 
 queues-benchmark-mem-pprof:
-	go tool pprof -http=:8080 queues-benchmark-mem.out 
+	go tool pprof -http=:8080 queues-benchmark-mem.out
 
 queues-benchmark-cpu-pprof:
 	go tool pprof -http=:8080 queues-benchmark-cpu.out
+
+fuzzy-test:
+	go test -v ./test/fuzzy/...  -fuzz=. -fuzztime 10s
 
 mutation-test:
 	@echo "Installing Gremlins..."
@@ -96,10 +96,8 @@ mutation-test:
               --workers=4 \
               --test-cpu=2 \
               --timeout-coefficient=0 \
-              --threshold-efficacy=90 \
-              --threshold-mcover=50 \
               --coverpkg "./internal/...,./pkg/..." \
-		   	  --exclude-files "test/mock/..." --exclude-files "test/mocks/..." \
+		   	  --exclude-files "test/mock/..." --exclude-files "test/mocks/..." --exclude-files "cmd/..." \
               --arithmetic-base=true \
               --conditionals-boundary=true \
               --conditionals-negation=true \

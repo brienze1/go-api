@@ -37,7 +37,6 @@ func (n *notes) Publish(ctx context.Context, note entities.Note) (err error) {
 	}
 
 	return nil
-
 }
 
 func NewNotesQueue(sqsClient SqsClient) adapters.NoteQueue {

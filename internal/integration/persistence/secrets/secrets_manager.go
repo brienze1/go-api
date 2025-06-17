@@ -28,5 +28,3 @@ func (s secret) Get(ctx context.Context, key string) ([]byte, error) {
 func NewSecret(client SecretClient) adapters.Secret {
 	return &secret{client: client}
 }
-
-//TODO: create sqs client class
